@@ -1,0 +1,129 @@
+ <!DOCTYPE html>
+ <html lang="en">
+
+<script>
+    document.getElementById("demo").innerHTML = "My First JavaScript";
+</script> 
+
+ <head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="style.css">
+     <title>STR</title>
+ </head>
+
+
+ <body>
+     <header>
+     <h1>Student Registration Form</h1>
+     </header>
+
+     <main>
+        <div id="unite">
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" name="fname" placeholder="Enter your first name">
+        </div>
+        <br>
+        <div id="unite">
+            <label for="lname">Last name: </label>
+            <input type="text" id="lname" name="lname" placeholder="Enter your last name">
+        </div>
+        <br>
+        <div id="unite">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="it should contain @,."
+            pattern=".+@globex\.com" required>
+        </div>
+        <br>
+        <div id="unite">
+            <label for="mobile">Mobile: </label>
+            <input type="tel" id="phone" name="phone" placeholder="only 10 digits are allowed"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="10" required>
+        </div>
+        <br>
+        <div class="gender_radio" id ="unite">
+            <label>Gender: </label>
+
+            <input type="radio" name="gender" id="gender_male" value="male">
+            <label for="gender_male" style="width: 50px;">male</label>
+
+            <input type="radio" name="gender" id="gender_female" value="female">
+            <label for="gender_female">female</label>
+          </div>
+        <br>
+        <div id="unite">
+            <label for="birthday">Birthday:</label>
+            <input type="date" id="birthday" name="birthday"> 
+        </div>
+        <br>
+        <div id="unite">
+            <label for="birthday">Address:</label>
+            <textarea type="text" id="address" name="address" rows="4"></textarea>
+        </div>
+        <br>
+        <div id="unite">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city">
+        </div>
+        <br>
+        <div id="unite">
+            <label for="area_pin">Area PIN:</label>
+            <input type="text" id="area_pin" name="area_pin">
+        </div>
+        <br>
+        <div id="unite">
+            <label for="state">State:</label>
+            <input type="text" id="state" name="state">
+        </div>
+        <br>
+        <div id="unite">
+            <label for="qualification">Qualification:</label>
+            <select name="qualification" id="qualification">
+                <option selected disabled hidden>Select Qualification</option>
+                <option value="Bachelor">Bachelor's degree</option>
+                <option value="diploma">Diploma</option>
+                <option value="certificate">Certificate</option>
+                <option value="postgraduate">Postgraduate study</option>
+            </select>
+        </div>
+        <br>
+      
+        <div id="unite">
+            <label>Spetialization:</label>
+            <div class="clmn">
+                <div id="unite">
+                    <input type="checkbox" id="computer_science" name="Spetialization" value="computerscience">
+                    <label for="computer_science" style="width: 200px;">Computer Science</label>
+                </div>
+                <br>
+                <div id="unite">
+                    <input type="checkbox" id="information_technology" name="Spetialization" value="informationtechnology">
+                    <label for="information_technology" style="width: 200px;">Information Technology</label>
+                </div>
+                <br>
+                <div id="unite">
+                    <input type="checkbox" id="computer_architecture" name="Spetialization" value="computerarchitecture">
+                    <label for="computer_architecture" style="width: 200px;">Computer Architecture</label>
+                </div>
+                <br>
+                <div id="unite">
+                    <input type="checkbox" id="tele_communication" name="Spetialization" value="telecommunication">
+                    <label for="tele_communication" style="width: 200px;">Tele Communication</label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div id="unite">
+            <label for="pwd">Password:</label>
+            <input type="password" id="pwd" name="password"minlength="8" required>
+        </div>
+        <br>
+        <input class = "submit_button" type="submit" value="Register">
+     </main>
+
+
+ </body>
+
+
+ </html>

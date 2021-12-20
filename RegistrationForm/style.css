@@ -1,0 +1,46 @@
+h1{
+    color: darkred;
+    text-align: right;
+    padding-right: 10vw;
+    text-decoration-line: underline;
+    font-size: 150%;
+} 
+header{
+    background-color: white;
+}
+main{
+    background-color: rgba(0, 0, 0, 0.1);
+    padding-top: 3%;
+    padding-bottom: 3%;
+    padding-left: 3%;
+}
+label{
+    width: 15vw;
+}
+
+[type=text],[type = date],[type=email],[type=tel],[type=password]{
+    width: 70%;
+}
+
+.submit_button{
+    background-color: rgb(25, 133, 25);
+    color: white;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 20px;
+    cursor:pointer;
+
+}
+#unite{
+    display: flex;
+}
+
+input {
+
+    border-color: rgb(204, 204, 204);
+    border-width: 2px;
+    border-radius: 5px;
+
+}
