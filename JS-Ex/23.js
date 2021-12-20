@@ -3,4 +3,4 @@ const t = setInterval(() => {
     console.log(new Date());
     n++;
     if (n == 10) clearInterval(t);
-}, 5000);      
+}, 1000);      
