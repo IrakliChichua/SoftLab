@@ -1,6 +1,6 @@
-var n = 0;
+let n = 0;
 const t = setInterval(() => {
     console.log(new Date());
     n++;
-    if (n == 10) clearInterval(t);
+    if (n === 10) clearInterval(t);
 }, 1000);      

@@ -25,6 +25,6 @@ const rectangles = [{
 	color: "red"
 }];
 
-rectangles.filter(rec => rec.color=="red" || rec.color=="green")
+rectangles.filter(rec => rec.color==="red" || rec.color==="green")
 .map(rec => rec.id + ': ' + (rec.width * rec.height)) 
 .forEach(element => console.log(element));

@@ -1,7 +1,6 @@
 function string(value){
     if (typeof value === 'string'){
-        if (value.includes('?')) return true;
-        else return false; 
+        return value.includes('?');
     }
     else throw 'Invalid Input type';
 }
