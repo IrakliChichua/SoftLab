@@ -25,5 +25,5 @@ const rectangles = [{
 	color: "red"
 }];
 
-rectangles.map(rec => rec.id + ': ' + (rec.height * rec.width))
+rectangles.map(rec => rec.id + ':   ' + (rec.height * rec.width))
 .forEach(element => console.log(element));
