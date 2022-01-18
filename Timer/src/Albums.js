@@ -14,11 +14,11 @@ function Albums(props) {
     setAlbums(album.data)
   }
 
-  async function getPhotos() {
+  async function getPhotos(albumId) {
     console.log(albumId)
     const photo = await api.get("photos?", {
       params: {
-        albumid: albumId
+        albumId: albumId
       }
     })
     setPhotos(photo.data)
@@ -27,10 +27,6 @@ function Albums(props) {
   useEffect(() => {
     getAlbums().catch(console.error)
   }, [])
-
-  useEffect(() => {
-    getPhotos().catch(console.error)
-  }, [albumId])
 
   const AlbumCard = ({userId, id, title}) => (
     <Card style={{width: '18rem', marginTop: 20, marginLeft: 20}}>
@@ -44,7 +40,7 @@ function Albums(props) {
 
   const show = (id) => {
     setShowModal(() => true)
-    setAlbumId(id)
+    getPhotos(id).catch(console.error)
   }
 
   return (
@@ -67,7 +63,7 @@ function Albums(props) {
                 {photo.title}
               </Modal.Header>
               <Modal.Body>
-                <Image src={photo.url}/>
+                <Image src={photo.thumbnailUrl}/>
               </Modal.Body>
             </div>
 
