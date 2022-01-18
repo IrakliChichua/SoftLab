@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import {Button, ButtonGroup} from "react-bootstrap";
 
 export default function Timer(){
 
@@ -37,21 +38,21 @@ export default function Timer(){
 
     useEffect(()=>{
         if(start_stop){
-            const interval = setInterval(()=>{
+            const interval_1 = setInterval(()=>{
                 setTotalTimeInMilSec((prev)=>prev-1);
             },10)
-            return () => clearInterval(interval);
+            return () => clearInterval(interval_1);
         }
     },[start_stop])
 
     useEffect(()=>{
-        const interval = secondsToTime
+        const interval_2 = secondsToTime
         if (totalTimeInMilSec >= 0 ) {
-            interval();
+            interval_2();
         }
         else {
             return () => {
-                clearInterval(interval)
+                clearInterval(interval_2)
                 setStart((prev)=>!prev)
             };
         }
@@ -59,16 +60,16 @@ export default function Timer(){
 
     return (
         <>
-            <div>
             <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>{showMilSecs?<span>{':'+milSeconds}</span>:null}
-            </div>
-            {
-                totalTimeInMilSec<=0
-                ?<button disabled onClick={onClickHandleStart}>{start_stop?'Stop':'Start'}</button>
-                :<button onClick={onClickHandleStart}>{start_stop?'Stop':'Start'}</button>
-            }
-            <button onClick={onClickHandleReset}>Reset</button>
-            <button onClick={onClickHandleMilSeconds}>{showMilSecs?'Hide MilSeconds':'Show MilSeconds'}</button>
+            <ButtonGroup>
+                {
+                    totalTimeInMilSec<=0
+                        ?<Button disabled onClick={onClickHandleStart}>{start_stop?'Stop':'Start'}</Button>
+                        :<Button onClick={onClickHandleStart}>{start_stop?'Stop':'Start'}</Button>
+                }
+                <Button onClick={onClickHandleReset}>Reset</Button>
+                <Button onClick={onClickHandleMilSeconds}>{showMilSecs?'Hide MilSeconds':'Show MilSeconds'}</Button>
+            </ButtonGroup>
         </>
     )
 }
