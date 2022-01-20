@@ -7,7 +7,7 @@ export default function Timer() {
     const [minutes, setMinutes] = useState(0)
     const [seconds, setSeconds] = useState(0)
     const [milSeconds, setMilSeconds] = useState(0)
-    const [start_stop, setStart] = useState(false)
+    const [start_stop, setStart_Stop] = useState(false)
     const [showMilSecs, setShowMilSecs] = useState(false)
 
     const [totalTimeInMilSec, setTotalTimeInMilSec] = useState(3 * 100);
@@ -26,7 +26,7 @@ export default function Timer() {
     }
 
     const onClickHandleStart = () => {
-        setStart((prev) => !prev)
+        setStart_Stop((prev) => !prev)
     }
     const onClickHandleReset = () => {
         setTotalTimeInMilSec(() => 120 * 100)
@@ -46,15 +46,11 @@ export default function Timer() {
     }, [start_stop])
 
     useEffect(() => {
-        const interval_2 = secondsToTime
         if (totalTimeInMilSec >= 0) {
-            interval_2();
-        } else {
-            return () => {
-                clearInterval(interval_2)
-                setStart((prev) => !prev)
-            };
+            secondsToTime()
         }
+        else return () => setStart_Stop((prev) => !prev)
+
     }, [totalTimeInMilSec])
 
     return (
