@@ -48,20 +48,25 @@ export default function Timer() {
     }
 
     useEffect(() => {
+        let interval_1;
+        // console.log('x')
         if (start_stop) {
-            const interval_1 = setInterval(() => {
+            interval_1 = setInterval(() => {
                 setTotalTimeInMilSec((prev) => prev - 1);
             }, 10)
-            return () => clearInterval(interval_1);
         }
+        return () => clearInterval(interval_1);
+
     }, [start_stop])
 
     useEffect(() => {
+        // console.log('y')
         if (totalTimeInMilSec >= 0)  milSecondsToTime()
         else return () => setStart_Stop((prev) => !prev)
     }, [totalTimeInMilSec])
 
     useEffect(() => {
+        // console.log('z')
         if (totalTimeInMilSec === 1) return ()=> setStart_Stop((prev) => !prev)
     }, [totalTimeInMilSec])
 
