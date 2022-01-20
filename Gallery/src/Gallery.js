@@ -16,7 +16,7 @@ function Gallery({showAlbum}) {
     }, [])
 
     const AlbumCard = ({userId, id, title}) => (
-        <Card style={{width: '18rem', marginTop: 20, marginLeft: 20, cursor: "pointer"}}>
+        <Card onClick={() => showAlbum(id)} style={{width: '18rem', marginTop: 20, marginLeft: 20, cursor: "pointer"}}>
             <ListGroup variant="flush">
                 <ListGroup.Item>ალბომი: {id}</ListGroup.Item>
                 <ListGroup.Item>
@@ -32,7 +32,7 @@ function Gallery({showAlbum}) {
             <Row>
                 {
                     albums.map((album) => (
-                        <Col key={album.id} onClick={() => showAlbum(album.id)}>
+                        <Col key={album.id} >
                             <AlbumCard {...album} />
                         </Col>
                     ))
