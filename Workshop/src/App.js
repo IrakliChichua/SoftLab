@@ -1,11 +1,12 @@
-import Navigation from "./Navigation";
 import {Outlet} from 'react-router-dom'
+import NavBar from "./NavBar";
 
 export default function App() {
 
+
     return (
         <>
-            <Navigation/>
+            <NavBar/>
             <Outlet/>
         </>
     );

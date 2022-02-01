@@ -1,24 +1,15 @@
-import React, {useEffect, useState} from 'react';
-import api from "./api";
+import React from 'react';
 import {Card, Col, ListGroup, Row} from "react-bootstrap";
+import {useNavigate} from 'react-router-dom'
 
-function Gallery({showAlbum}) {
-
-    const [albums, setAlbums] = useState([])
-
-    async function getAlbums() {
-        const album = await api.get("albums")
-        setAlbums(album.data)
-    }
-
-    useEffect(() => {
-        getAlbums().catch(console.error)
-    }, [])
+function Gallery({albums}) {
+    const navigate = useNavigate();
 
     const AlbumCard = ({userId, id, title}) => (
-        <Card onClick={() => showAlbum(id)} style={{width: '18rem', marginTop: 20, marginLeft: 20, cursor: "pointer"}}>
+        <Card onClick={() => navigate(`/album/${id}`)}
+              style={{width: '18rem', marginTop: 20, marginLeft: 20, cursor: "pointer"}}>
             <ListGroup variant="flush">
-                <ListGroup.Item>ალბომი: {id}</ListGroup.Item>
+                <ListGroup.Item style={{background: "lightblue"}}>ალბომი: {id}</ListGroup.Item>
                 <ListGroup.Item>
                     <h6>userId {userId}</h6>
                     <div>{title}</div>
@@ -28,18 +19,17 @@ function Gallery({showAlbum}) {
     )
 
     return (
-        <>
-            <Row>
-                {
-                    albums.map((album) => (
-                        <Col key={album.id} >
-                            <AlbumCard {...album} />
-                        </Col>
-                    ))
-                }
-            </Row>
-        </>
+        <Row>
+            {
+                albums.map((album) => (
+                    <Col key={album.id}>
+                        <AlbumCard {...album} />
+                    </Col>
+                ))
+            }
+        </Row>
     );
+
 }
 
 export default Gallery;
